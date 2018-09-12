@@ -4,6 +4,7 @@ public class OrGate extends Gate {
 	private Emitter[] emitters;
 
 	public OrGate() {
+		super("OR");
 		emitters = new Emitter[2];
 	}
 

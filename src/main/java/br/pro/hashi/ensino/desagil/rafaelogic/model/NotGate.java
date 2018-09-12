@@ -4,6 +4,7 @@ public class NotGate extends Gate {
 	private Emitter[] emitters;
 
 	public NotGate() {
+		super("NOT");
 		emitters = new Emitter[1];
 	}
 

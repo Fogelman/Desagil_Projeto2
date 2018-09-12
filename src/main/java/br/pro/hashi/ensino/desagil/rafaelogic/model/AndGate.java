@@ -4,7 +4,9 @@ public class AndGate extends Gate {
 	private Emitter[] emitters;
 	
 	public AndGate() {
+		super("AND");
 		emitters = new Emitter[2];
+		
 	}
 
 	@Override
@@ -22,4 +24,5 @@ public class AndGate extends Gate {
 		nand2.connect(1, nand1);
 		return nand2.read();
 	}
+
 }

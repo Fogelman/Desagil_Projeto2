@@ -4,6 +4,7 @@ public class XorGate extends Gate {
 	private Emitter[] emitters;
 
 	public XorGate() {
+		super("XOR");
 		emitters = new Emitter[2];
 	}
 
