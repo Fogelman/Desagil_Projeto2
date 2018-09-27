@@ -28,7 +28,10 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 	private Color color;
 	private Image image;
 	private boolean result;
-
+	private int xCenter = 195;
+	private int yCenter = 168;
+	private int radius = 10;
+	
 	public BooleanView(Gate gate) {
 
 		super(300, 300);
@@ -37,26 +40,22 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 
 		aField = new JCheckBox();
 		bField = new JCheckBox();
-		//resultField = new JCheckBox();
 
-		JLabel entradaLabel = new JLabel("Entrada:");
 
-		//JLabel resultLabel = new JLabel("Saida:");
-
-		add(entradaLabel, 10, 10, 75, 25);
 		add(aField, 10, 30, 150, 25);
-		
-		//add(resultLabel, 10, 80, 75, 25);
-		//add(resultField, 10, 100, 20, 20);
 
 		aField.addActionListener(this);
 		bField.addActionListener(this);
 
-		//resultField.setEnabled(false);
+
 
 		if (isNotGate()) {
-			add(bField, 10, 50, 75, 25);
-
+			add(aField, 10, 120, 150, 25);
+			add(bField, 10, 190, 75, 25);
+			
+		}
+		else {
+			add(aField, 10, 155, 150, 25);
 		}
 
 		update();
@@ -89,7 +88,7 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 		}
 
 		result = gate.read();
-		//resultField.setSelected(result);
+
 	}
 
 	private boolean isNotGate() {
@@ -110,9 +109,9 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 		int y = event.getY();
 		System.out.println(x);
 		System.out.println(y);
-		double distancia = Math.pow((x-220), 2) + Math.pow((y-170), 2);
+		double distancia = Math.pow((x-xCenter), 2) + Math.pow((y-yCenter), 2);
 		System.out.println(distancia);
-		if ( distancia <= 400) {
+		if ( distancia <= Math.pow((radius), 2)) {
 
 			color = JColorChooser.showDialog(this, null, color);
 			repaint();
@@ -141,18 +140,21 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 
 		super.paintComponent(g);
 
-		g.drawImage(image, 10, 80, 175, 175, null);
+		g.drawImage(image, 20, 80, 175, 175, null);
 
 		g.setColor(color);
 		
+		
+		
+
 		if (result) {
-			g.fillOval(200, 150, 40, 40);
+			g.fillOval(xCenter -radius , yCenter-radius, radius*2, radius*2);
 			repaint();
 
 		}
 		
 		else {
-			g.drawOval(200, 150, 40, 40);
+			g.drawOval(xCenter-radius, yCenter-radius, radius*2, radius*2);
 			repaint();
 		}
 
