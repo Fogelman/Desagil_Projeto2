@@ -10,7 +10,6 @@ import java.awt.event.MouseListener;
 import java.net.URL;
 
 import javax.swing.JColorChooser;
-import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 
@@ -107,10 +106,7 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 
 		int x = event.getX();
 		int y = event.getY();
-		System.out.println(x);
-		System.out.println(y);
 		double distancia = Math.pow((x-xCenter), 2) + Math.pow((y-yCenter), 2);
-		System.out.println(distancia);
 		if ( distancia <= Math.pow((radius), 2)) {
 
 			color = JColorChooser.showDialog(this, null, color);
