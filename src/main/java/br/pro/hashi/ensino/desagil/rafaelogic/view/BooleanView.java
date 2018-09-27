@@ -28,12 +28,12 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 	private Image image;
 	private boolean result;
 	private int xCenter = 195;
-	private int yCenter = 168;
+	private int yCenter = 98;
 	private int radius = 10;
 	
 	public BooleanView(Gate gate) {
 
-		super(300, 300);
+		super(230, 200);
 
 		this.gate = gate;
 
@@ -41,7 +41,6 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 		bField = new JCheckBox();
 
 
-		add(aField, 10, 30, 150, 25);
 
 		aField.addActionListener(this);
 		bField.addActionListener(this);
@@ -49,18 +48,17 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 
 
 		if (isNotGate()) {
-			add(aField, 10, 120, 150, 25);
-			add(bField, 10, 190, 75, 25);
+			add(aField, 10, 50, 150, 25);
+			add(bField, 10, 120, 75, 25);
 			
 		}
 		else {
-			add(aField, 10, 155, 150, 25);
+			add(aField, 10, 85, 150, 25);
 		}
 
 		update();
 
 		String path = "/" + gate.toString() + ".png";
-		System.out.println(path);
 		URL url = getClass().getResource(path);
 		image = new ImageIcon(url).getImage();
 
@@ -136,7 +134,7 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 
 		super.paintComponent(g);
 
-		g.drawImage(image, 20, 80, 175, 175, null);
+		g.drawImage(image, 20, 10, 175, 175, null);
 
 		g.setColor(color);
 		
