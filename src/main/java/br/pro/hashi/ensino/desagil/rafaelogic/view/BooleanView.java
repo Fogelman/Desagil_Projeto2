@@ -48,12 +48,12 @@ public class BooleanView extends SimplePanel implements ActionListener, MouseLis
 
 
 		if (isNotGate()) {
-			add(aField, 10, 50, 150, 25);
+			add(aField, 10, 50, 25, 25);
 			add(bField, 10, 120, 75, 25);
 			
 		}
 		else {
-			add(aField, 10, 85, 150, 25);
+			add(aField, 10, 85, 25, 25);
 		}
 
 		update();
